@@ -13,7 +13,10 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author lucas
+ * @author Lucas Guasselli
+ * @since 25/06/2017
+ * @version 3.0
+ * 
  */
 public class VendaPassagemAerea extends Application {
     
@@ -23,7 +26,10 @@ public class VendaPassagemAerea extends Application {
         
         Scene scene = new Scene(root);
         
+        
         stage.setScene(scene);
+        scene.getStylesheets().add
+        (VendaPassagemAerea.class.getResource("/stilo/TelaPrincipal.css").toExternalForm());
         stage.show();
     }
 

@@ -15,14 +15,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
  *
- * @author lhries
+ * @author Lucas Guasselli
+ * @since 25/06/2017
+ * @version 3.0
+ * 
  */
 public class TelaPrincipalController implements Initializable {
     
@@ -39,12 +41,12 @@ public class TelaPrincipalController implements Initializable {
         stage.initOwner(painelTelaPrincipal.getScene().getWindow());
         stage.showAndWait();
 
-    }
+    }//fecha abrirTelaCadCliente
     
        
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }//fecha initilize    
     
-}
+}//fecha classe

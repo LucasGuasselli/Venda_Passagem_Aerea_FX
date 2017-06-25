@@ -6,8 +6,10 @@
 package controller;
 
 import DAO.ClienteDAO;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,13 +18,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import model.Cliente;
 
 /**
- * FXML Controller class
  *
- * @author lhries
+ * @author Lucas Guasselli
+ * @since 25/06/2017
+ * @version 3.0
+ * 
  */
 public class TelaCadClienteController implements Initializable {
     @FXML    
@@ -42,7 +47,15 @@ public class TelaCadClienteController implements Initializable {
     } 
     @FXML
     private void onActionCadastrar(ActionEvent event) {      
-        cadastrarCliente();
+        if(verificaCamposVazios() == true){
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("CAMPOS VAZIOS");
+            alert.setHeaderText(null);
+            alert.setContentText("Voce deve preencher todos os campos!!");
+                alert.showAndWait();
+        }else{
+            cadastrarCliente();
+        }//fecha if-else
         
     }//fecha handle event
     
@@ -58,28 +71,51 @@ public class TelaCadClienteController implements Initializable {
         stage.close();
     }//fecha botao voltar
     
-    private void cadastrarCliente(){
-        try{
+    private void cadastrarCliente(){             
+        
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Confirmacao de cadastro");
+                alert.setHeaderText(null);
+                alert.setContentText("Voce tem certeza?");
+                   Optional<ButtonType> result = alert.showAndWait();
+        
+            if (result.get() == ButtonType.OK){
+                try{
                   cDAO.cadastrarCliente(new Cliente(tfNome.getText(), tfRg.getText(), tfTelefone.getText())); 
-            } catch (Exception e){
-                    Alert alert = new Alert(AlertType.ERROR);
-                    alert.setTitle("ERRO");
-                    alert.setHeaderText("aaaaa");
-                    alert.setContentText("Erro ao cadastrar Cliente!");
-
-                    alert.showAndWait(); 
-            }//try-catch 
-        Alert alert = new Alert(AlertType.INFORMATION);
+                    alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("SUCESSO!");
                     alert.setHeaderText(null);
                     alert.setContentText("Cliente cadastrado com sucesso!");
+                       alert.showAndWait();
+                } catch (Exception e){
+                    alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("EXCEÇÃO");
+                    alert.setHeaderText(null);
+                    alert.setContentText("erro ao cadastrar cliente!");
 
-                    alert.showAndWait(); 
+                    Exception ex = new FileNotFoundException("erro ao cadastrar cliente");
+            }//try-catch 
+             
+            } else {
+                alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("CANCELADO!");
+                alert.setHeaderText(null);
+                alert.setContentText("cadastro cancelado com sucesso!");
+                    alert.showAndWait();
+            }//fecha if-else           
+            
     }//fecha cadastrar Cliente
     
     private void limpar(){
-        tfNome.setText(null);
-        tfRg.setText(null);
-        tfTelefone.setText(null);
+        tfNome.setText("");
+        tfRg.setText("");
+        tfTelefone.setText("");
     }//fecha limpar
+
+    private boolean verificaCamposVazios() {
+        if(tfNome.getText().isEmpty() || tfRg.getText().isEmpty() || tfTelefone.getText().isEmpty()){
+            return true;
+        }//fecha if  
+        return false;
+    }//fecha verificaCampos Vazios
 }//fecha classe
