@@ -21,6 +21,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import model.Cliente;
+import util.Digita;
 
 /**
  *
@@ -39,7 +40,7 @@ public class TelaCadClienteController implements Initializable {
     @FXML
     private TextField tfTelefone;
     private ClienteDAO cDAO = new ClienteDAO();
-    
+    private Digita d = new Digita();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -54,7 +55,15 @@ public class TelaCadClienteController implements Initializable {
             alert.setContentText("Voce deve preencher todos os campos!!");
                 alert.showAndWait();
         }else{
-            cadastrarCliente();
+            if(d.validaNome(tfNome.getText()) == true && d.validaRg(tfRg.getText()) == true && d.validaTelefone(tfTelefone.getText()) == true){
+                cadastrarCliente();
+            }else{
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("CAMPOS CHEIOS");
+                alert.setHeaderText(null);
+                alert.setContentText("Voce excedeu a quantidade de caracteres de algum campo!!");
+                   alert.showAndWait();
+            }//fecha if-else                
         }//fecha if-else
         
     }//fecha handle event
@@ -118,4 +127,5 @@ public class TelaCadClienteController implements Initializable {
         }//fecha if  
         return false;
     }//fecha verificaCampos Vazios
+    
 }//fecha classe

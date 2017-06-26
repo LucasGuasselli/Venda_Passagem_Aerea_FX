@@ -13,6 +13,7 @@
           <Menu mnemonicParsing="false" text="Cadastrar">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#abrirTelaCadCliente" text="Cliente" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaCadAviao" text="Aviao" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Editar">
@@ -28,6 +29,11 @@
             <Menu mnemonicParsing="false" text="Listar">
               <items>
                 <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Opcoes">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#sair" text="SAIR" />
               </items>
             </Menu>
         </menus>

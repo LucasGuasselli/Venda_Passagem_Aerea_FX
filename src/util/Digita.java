@@ -23,16 +23,25 @@ public class Digita {
                   return ler.nextLine();
             }//fecha Digita
     
-    public String digitaRg(String texto){
-        Scanner ler = new Scanner(System.in);    
+    public String digitaRg(String textfield){
         String rg = "";
-        limit = 10;            
-            do{
-                System.out.print(texto);
-                 rg = ler.nextLine();                         
-            }while(rg.length() > limit || rg.length() <= 3);
-                return rg;
+        limit = 10;           
+                rg = textfield;                        
+            if(rg.length() > limit || rg.length() <= 3){
+                return null;
+            }
+        return rg;
     }//fecha Digita
+    
+    public boolean validaRg(String textfield){
+        String rg = "";
+        limit = 10;           
+                rg = textfield;                        
+            if(rg.length() > limit || rg.length() <= 3){
+                return false;
+            }
+        return true;
+    }//fecha validaRg
     
     public int digitaCodigo(String texto){
         Scanner ler = new Scanner(System.in);    
@@ -57,6 +66,16 @@ public class Digita {
                 return nome;   
     }//fecha metodo
 
+    public boolean validaNome(String textfield){
+        String nome = "";
+        limit = 30;            
+            nome = textfield;
+            if(nome.length() > limit || nome.length() == 1){
+                return false;
+            }
+        return true;          
+    }//fecha validaNome
+    
     public String digitaData(String texto) {
         Scanner ler = new Scanner(System.in);    
         String data = "00/00/0000";
@@ -79,4 +98,14 @@ public class Digita {
                 return telefone;  
     }//fecha metodo    
    
+    public boolean validaTelefone(String textfield){
+        String telefone = "(00)00000-0000";
+        limit = 14;            
+            telefone = textfield;
+            if(telefone.length() > limit || telefone.length() <= 7){
+                return false;
+            }
+        return true;          
+    }//fecha validaTelefone
+    
 }//fecha classe

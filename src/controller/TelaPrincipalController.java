@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 /**
  *
@@ -35,15 +36,34 @@ public class TelaPrincipalController implements Initializable {
     private void abrirTelaCadCliente(ActionEvent event) throws IOException {
         
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(this.getClass().getResource("/view/TelaCadCliente.fxml"));
+        Parent cliente = FXMLLoader.load(this.getClass().getResource("/view/TelaCadCliente.fxml"));
+        Scene scene = new Scene(cliente);
+        stage.setScene(scene);
+        scene.getStylesheets().add(TelaPrincipalController.class.getResource("/estilo/Cliente.css").toExternalForm());
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(painelTelaPrincipal.getScene().getWindow());        
+                
+        stage.showAndWait();
+
+    }//fecha abrirTelaCadCliente
+    
+    @FXML
+    private void abrirTelaCadAviao(ActionEvent event) throws IOException {
+        //System.out.println("You clicked me!");
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(this.getClass().getResource("/view/TelaCadAviao.fxml"));
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(painelTelaPrincipal.getScene().getWindow());
         stage.showAndWait();
 
-    }//fecha abrirTelaCadCliente
+    }
     
-       
+    @FXML
+    private void sair(ActionEvent event){
+        System.exit(EXIT_ON_CLOSE);
+    }//fecha metodo sair
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

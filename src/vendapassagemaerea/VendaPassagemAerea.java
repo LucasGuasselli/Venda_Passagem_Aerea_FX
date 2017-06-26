@@ -29,7 +29,7 @@ public class VendaPassagemAerea extends Application {
         
         stage.setScene(scene);
         scene.getStylesheets().add
-        (VendaPassagemAerea.class.getResource("/stilo/TelaPrincipal.css").toExternalForm());
+        (VendaPassagemAerea.class.getResource("/estilo/estilo.css").toExternalForm());
         stage.show();
     }
 
