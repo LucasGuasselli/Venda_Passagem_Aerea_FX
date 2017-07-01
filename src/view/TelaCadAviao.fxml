@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="telaCadAviao" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaCadAviaoController">
+<AnchorPane id="AnchorPane" fx:id="telaCadAviao" prefHeight="300.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaCadAviaoController">
    <children>
-      <Button layoutX="285.0" layoutY="168.0" mnemonicParsing="false" onAction="#tratarBotaoVoltar" text="Voltar" />
-      <Button layoutX="283.0" layoutY="120.0" mnemonicParsing="false" onAction="#tratarBotaoVoltar" text="Button" />
+      <Group />
+      <GridPane layoutX="5.0" layoutY="26.0" prefHeight="91.0" prefWidth="512.0">
+         <children>
+            <TextField fx:id="tfCodigo" prefHeight="25.0" prefWidth="171.0" promptText="digite o codigo" style="-fx-border-color: black; -fx-background-color: none; -fx-border-radius: 10px;" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="tfQtdeAssentos" prefHeight="29.0" prefWidth="216.0" promptText="digite a quantidade de assentos" style="-fx-background-color: none; -fx-border-color: black; -fx-border-radius: 10px;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Codigo" />
+            <Label text="Nome:" GridPane.rowIndex="1" />
+            <Label prefHeight="32.0" prefWidth="148.0" text="Quantidade de Assentos:" GridPane.rowIndex="2" />
+            <Label prefHeight="17.0" prefWidth="159.0" text="min 0 - max 999 num inteiro" GridPane.columnIndex="2" />
+            <Label prefHeight="17.0" prefWidth="159.0" text="min 2 - max 30 caracteres" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label prefHeight="17.0" prefWidth="161.0" text="min 80 - max 200 num inteiro" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="tfNome" prefHeight="29.0" prefWidth="187.0" promptText="digite o nome do aviao" style="-fx-background-color: none; -fx-border-color: black; -fx-border-radius: 10px;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="137.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="213.0" minWidth="10.0" prefWidth="202.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="155.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="58.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="64.0" minHeight="0.0" prefHeight="32.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <Button layoutX="163.0" layoutY="181.0" mnemonicParsing="false" onAction="#onActionCadastrar" text="Cadastrar" />
+      <Button layoutX="245.0" layoutY="231.0" mnemonicParsing="false" onAction="#tratarBotaoVoltar" text="Voltar" />
+      <Button layoutX="299.0" layoutY="181.0" mnemonicParsing="false" onAction="#onActionLimpar" text="Limpar" />
    </children>
 </AnchorPane>

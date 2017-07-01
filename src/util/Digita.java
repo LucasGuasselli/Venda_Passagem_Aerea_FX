@@ -6,6 +6,7 @@
 package util;
 
 import java.util.Scanner;
+import javafx.scene.control.Alert;
 
 /**
  *
@@ -51,6 +52,20 @@ public class Digita {
                    codigo = ler.nextInt();                         
             }while(codigo < 0 || codigo > 999);
                 return codigo;
+    }//fecha Digita
+    
+    public boolean validaCodigo(String textfield){
+        int codigo;
+        
+            codigo = Integer.parseInt(textfield);
+
+            if(codigo > 0 || codigo < 999){
+                return true;
+            }else{
+                return false;
+            }
+        
+        
     }//fecha Digita
 
     public String digitaNome(String texto) {
@@ -107,5 +122,19 @@ public class Digita {
             }
         return true;          
     }//fecha validaTelefone
+    
+    public boolean validaQtdeAssentos(String textfield){
+        int qtdeAssentos;
+    
+            qtdeAssentos = Integer.parseInt(textfield);
+
+            if(qtdeAssentos > 80 || qtdeAssentos < 200){
+                return true;
+            }else{
+                return false;
+            }  //fecha if-else     
+        
+       
+    }//fecha validaQtdeAssentos
     
 }//fecha classe

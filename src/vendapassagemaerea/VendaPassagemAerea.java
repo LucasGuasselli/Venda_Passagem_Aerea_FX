@@ -31,13 +31,13 @@ public class VendaPassagemAerea extends Application {
         scene.getStylesheets().add
         (VendaPassagemAerea.class.getResource("/estilo/estilo.css").toExternalForm());
         stage.show();
-    }
+    }//fecha start
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         launch(args);
-    }
+    }//fecha main   
     
-}
+}//fecha classe

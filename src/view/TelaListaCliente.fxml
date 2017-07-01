@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaListaClienteController">
+    <stylesheets>
+        <URL value="@/estilo/telalistacliente.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="tableViewClientes" layoutX="14.0" layoutY="14.0" prefHeight="375.0" prefWidth="575.0">
+        <columns>
+          <TableColumn fx:id="tableColumnNome" prefWidth="227.0" text="Nome" />
+          <TableColumn fx:id="tableColumnRg" minWidth="0.0" prefWidth="166.0" text="RG" />
+            <TableColumn fx:id="tableColumnTelefone" minWidth="0.0" prefWidth="174.0" text="Telefone" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

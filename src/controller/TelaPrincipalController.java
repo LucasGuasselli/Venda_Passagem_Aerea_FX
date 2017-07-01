@@ -51,8 +51,9 @@ public class TelaPrincipalController implements Initializable {
     private void abrirTelaCadAviao(ActionEvent event) throws IOException {
         //System.out.println("You clicked me!");
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(this.getClass().getResource("/view/TelaCadAviao.fxml"));
-        stage.setScene(new Scene(root));
+        Parent aviao = FXMLLoader.load(this.getClass().getResource("/view/TelaCadAviao.fxml"));
+        stage.setScene(new Scene(aviao));
+        aviao.getStylesheets().add(TelaPrincipalController.class.getResource("/estilo/Aviao.css").toExternalForm());
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(painelTelaPrincipal.getScene().getWindow());
         stage.showAndWait();
