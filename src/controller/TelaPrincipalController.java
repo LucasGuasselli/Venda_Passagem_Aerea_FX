@@ -33,8 +33,7 @@ public class TelaPrincipalController implements Initializable {
     private AnchorPane painelTelaPrincipal;
     
     @FXML
-    private void abrirTelaCadCliente(ActionEvent event) throws IOException {
-        
+    private void abrirTelaCadCliente(ActionEvent event) throws IOException {        
         Stage stage = new Stage();
         Parent cliente = FXMLLoader.load(this.getClass().getResource("/view/TelaCadCliente.fxml"));
         Scene scene = new Scene(cliente);
@@ -44,9 +43,9 @@ public class TelaPrincipalController implements Initializable {
         stage.initOwner(painelTelaPrincipal.getScene().getWindow());        
                 
         stage.showAndWait();
-
     }//fecha abrirTelaCadCliente
     
+       
     @FXML
     private void abrirTelaCadAviao(ActionEvent event) throws IOException {
         //System.out.println("You clicked me!");
@@ -57,8 +56,46 @@ public class TelaPrincipalController implements Initializable {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(painelTelaPrincipal.getScene().getWindow());
         stage.showAndWait();
-
-    }
+    }//fecha abrirTelaCadAviao
+    
+    @FXML
+    private void abrirTelaDelCliente(ActionEvent event) throws IOException {        
+        Stage stage = new Stage();
+        Parent cliente = FXMLLoader.load(this.getClass().getResource("/view/TelaDelCliente.fxml"));
+        Scene scene = new Scene(cliente);
+        stage.setScene(scene);
+        scene.getStylesheets().add(TelaPrincipalController.class.getResource("/estilo/Cliente.css").toExternalForm());
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(painelTelaPrincipal.getScene().getWindow());        
+                
+        stage.showAndWait();
+    }//fecha abrirTelaDelCliente
+    
+    @FXML
+    private void abrirTelaDelAviao(ActionEvent event) throws IOException {        
+        Stage stage = new Stage();
+        Parent cliente = FXMLLoader.load(this.getClass().getResource("/view/TelaDelAviao.fxml"));
+        Scene scene = new Scene(cliente);
+        stage.setScene(scene);
+        scene.getStylesheets().add(TelaPrincipalController.class.getResource("/estilo/Aviao.css").toExternalForm());
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(painelTelaPrincipal.getScene().getWindow());        
+                
+        stage.showAndWait();
+    }//fecha abrirTelaDelCliente
+    
+    @FXML
+    private void abrirTelaListaCliente(ActionEvent event) throws IOException {        
+        Stage stage = new Stage();
+        Parent cliente = FXMLLoader.load(this.getClass().getResource("/view/TelaListaCliente.fxml"));
+        Scene scene = new Scene(cliente);
+        stage.setScene(scene);
+ 
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(painelTelaPrincipal.getScene().getWindow());        
+                
+        stage.showAndWait();
+    }//fecha abrirTelaListaCliente
     
     @FXML
     private void sair(ActionEvent event){

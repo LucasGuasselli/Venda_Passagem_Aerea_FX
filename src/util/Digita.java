@@ -63,9 +63,7 @@ public class Digita {
                 return true;
             }else{
                 return false;
-            }
-        
-        
+            }       
     }//fecha Digita
 
     public String digitaNome(String texto) {

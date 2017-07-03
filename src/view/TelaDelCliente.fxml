@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="telaDelCliente" prefHeight="300.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaDelClienteController">
+    <stylesheets>
+        <URL value="@/estilo/Cliente.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="tfRg" layoutX="24.0" layoutY="49.0" prefHeight="29.0" prefWidth="238.0" promptText="digite o  RG do cliente que deseja deletar" style="-fx-background-color: none; -fx-border-color: black; -fx-border-radius: 10px;" />
+      <Label layoutX="5.0" layoutY="55.0" text="RG:" />
+      <Label layoutX="268.0" layoutY="55.0" prefHeight="17.0" prefWidth="140.0" text="min 4 - max 10 caracteres" />
+      <Group />
+      <Button layoutX="240.0" layoutY="150.0" mnemonicParsing="false" onAction="#onActionLimpar" text="Limpar" />
+      <Button layoutX="183.0" layoutY="196.0" mnemonicParsing="false" onAction="#tratarBotaoVoltar" text="Voltar" />
+      <Button layoutX="116.0" layoutY="150.0" mnemonicParsing="false" onAction="#onActionDeletar" text="Deletar" />
+   </children>
+</AnchorPane>

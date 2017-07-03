@@ -92,7 +92,11 @@ public class TelaCadAviaoController implements Initializable {
         
             if (result.get() == ButtonType.OK){
                 try{
-                  aDAO.cadastrarAviao(new Aviao(Integer.parseInt(tfCodigo.getText()), tfNome.getText(), Integer.parseInt(tfQtdeAssentos.getText()))); 
+                    String nome =  tfNome.getText(); 
+                    nome = nome.toLowerCase();
+                    nome = nome.substring(0,1).toUpperCase().concat(nome.substring(1));
+                                           
+                aDAO.cadastrarAviao(new Aviao(Integer.parseInt(tfCodigo.getText()),nome, Integer.parseInt(tfQtdeAssentos.getText()))); 
                     alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("SUCESSO!");
                     alert.setHeaderText(null);
@@ -161,4 +165,5 @@ public class TelaCadAviaoController implements Initializable {
         }//fecha try-catch
         return false;
     }//fecha validaCampos
+    
 }//fecha classe

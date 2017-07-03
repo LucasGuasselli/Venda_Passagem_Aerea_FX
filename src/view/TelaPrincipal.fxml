@@ -23,12 +23,13 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Deletar">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#abrirTelaDelCliente" text="Cliente pelo RG" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaDelAviao" text="Aviao pelo codigo" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Listar">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" onAction="#abrirTelaListaCliente" text="Clientes" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Opcoes">

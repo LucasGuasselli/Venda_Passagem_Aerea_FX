@@ -90,7 +90,11 @@ public class TelaCadClienteController implements Initializable {
         
             if (result.get() == ButtonType.OK){
                 try{
-                  cDAO.cadastrarCliente(new Cliente(tfNome.getText(), tfRg.getText(), tfTelefone.getText())); 
+                String nome = tfNome.getText();
+                nome = nome.toLowerCase();
+                nome = nome.substring(0,1).toUpperCase().concat(nome.substring(1));
+                
+                  cDAO.cadastrarCliente(new Cliente(nome, tfRg.getText(), tfTelefone.getText())); 
                     alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("SUCESSO!");
                     alert.setHeaderText(null);
@@ -103,6 +107,7 @@ public class TelaCadClienteController implements Initializable {
                     alert.setContentText("erro ao cadastrar cliente!");
 
                     Exception ex = new FileNotFoundException("erro ao cadastrar cliente");
+                    alert.showAndWait();
             }//try-catch 
              
             } else {

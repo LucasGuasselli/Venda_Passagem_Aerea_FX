@@ -5,14 +5,16 @@
  */
 package controller;
 
+import DAO.ClienteDAO;
+import java.io.FileNotFoundException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -28,7 +30,8 @@ import model.Cliente;
  */
 public class TelaListaClienteController implements Initializable {
 
-    
+    @FXML
+    AnchorPane telaListaCliente;
     
     @FXML
     private TableView<Cliente> tableViewClientes;
@@ -41,7 +44,7 @@ public class TelaListaClienteController implements Initializable {
      
     @FXML
     private TableColumn<Cliente, String> tableColumnTelefone;
-    
+    private ClienteDAO cDAO = new ClienteDAO();
     
     private List<Cliente> listaClientes;
     
@@ -49,22 +52,28 @@ public class TelaListaClienteController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        carregaTableViewClientes();
-        
-        listaClientes = new ArrayList<>();
-        
-        listaClientes.add(new Cliente("nome","123456", "123456789"));
-        listaClientes.add(new Cliente("teste","987654321", "987654321"));
+        try{
+        listaClientes = cDAO.retornaListaClientes();            
+                carregaTableViewClientes(); 
+        }catch(Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("EXCEÇÃO");
+                alert.setHeaderText(null);
+                alert.setContentText("erro ao receber clientes do banco!");
 
+                Exception ex = new FileNotFoundException("erro ao receber clientes do banco");
+                alert.showAndWait();
+        }//try-catch
+               
     }//fecha initialize    
 
     private void carregaTableViewClientes() {
-        tableColumnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         tableColumnRg.setCellValueFactory(new PropertyValueFactory<>("rg"));
+        tableColumnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tableColumnTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));           
         
         observableListClientes = FXCollections.observableArrayList(listaClientes);
         tableViewClientes.setItems(observableListClientes);
-        
     }//fecha metodo carregaTableView
     
 }//fecha classe 

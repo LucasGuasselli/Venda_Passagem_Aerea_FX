@@ -94,7 +94,7 @@ public class AviaoDAO {
 
     public Aviao retornaAviaoByCod(int _codigo) throws SQLException, ClassNotFoundException {
         try{
-            String sql = "SELECT * FROM aviao WHERE idAviao = ?";
+            String sql = "SELECT * FROM aviao WHERE codigo = ?";
             conectar(sql);
                    comando.setInt(1,_codigo);
             ResultSet resultado = comando.executeQuery();
