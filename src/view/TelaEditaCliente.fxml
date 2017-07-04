@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="telaEditaCliente" prefHeight="290.0" prefWidth="380.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaEditaClienteController">
+    <stylesheets>
+        <URL value="@/estilo/Cliente.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="tableViewClientes" layoutY="256.0" prefHeight="224.0" prefWidth="395.0">
+         <columns>
+            <TableColumn fx:id="tableColumnNome" prefWidth="190.0" text="Nome" />
+            <TableColumn fx:id="tableColumnRg" minWidth="0.0" prefWidth="98.0" text="RG" />
+            <TableColumn fx:id="tableColumnTelefone" minWidth="0.0" prefWidth="105.0" text="Telefone" />
+         </columns>
+      </TableView>
+      <GridPane layoutX="11.0" layoutY="19.0" prefHeight="158.0" prefWidth="391.0">
+         <children>
+            <TextField fx:id="tfTelefone" prefHeight="29.0" prefWidth="202.0" promptText="digite o NOVO telefone" style="-fx-background-color: none; -fx-border-color: black; -fx-border-radius: 10px;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Nome:" GridPane.rowIndex="2" />
+            <Label text="RG:" GridPane.rowIndex="3" />
+            <Label text="Telefone:" GridPane.rowIndex="4" />
+            <Label prefHeight="17.0" prefWidth="159.0" text="min 2 - max 30 caracteres" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label prefHeight="17.0" prefWidth="159.0" text="min 4 - max 10 caracteres" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label prefHeight="17.0" prefWidth="139.0" text="min 8 - max 14 caracteres" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField fx:id="tfRg" prefHeight="21.0" prefWidth="187.0" promptText="digite o NOVO RG" style="-fx-background-color: none; -fx-border-color: black; -fx-border-radius: 10px;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="tfNome" prefHeight="14.0" prefWidth="187.0" promptText="digite o NOVO nome" style="-fx-border-color: black; -fx-background-color: none; -fx-border-radius: 10px;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="RG:" />
+            <Label prefHeight="17.0" prefWidth="159.0" text="min 4 - max 10 caracteres" GridPane.columnIndex="2" />
+            <TextField fx:id="tfRg_alterar" prefHeight="21.0" prefWidth="187.0" promptText=" RG do cliente que deseja alterar" style="-fx-background-color: none; -fx-border-color: black; -fx-border-radius: 10px;" GridPane.columnIndex="1">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </TextField>
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="62.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="203.0" minWidth="10.0" prefWidth="186.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="139.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="64.0" minHeight="0.0" prefHeight="26.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <Group layoutX="15.0" layoutY="-17.0">
+         <children>
+            <Button layoutX="99.0" layoutY="208.0" mnemonicParsing="false" onAction="#onActionEditar" text="Editar" />
+            <Button layoutX="162.0" layoutY="247.0" mnemonicParsing="false" onAction="#tratarBotaoVoltar" text="Voltar" />
+            <Button layoutX="220.0" layoutY="208.0" mnemonicParsing="false" onAction="#onActionLimpar" text="Limpar" />
+         </children>
+      </Group>
+   </children>
+</AnchorPane>

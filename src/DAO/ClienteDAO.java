@@ -212,7 +212,7 @@ public class ClienteDAO {
                 String rg = resultado.getString("rg");
                 String telefone = resultado.getString("telefone");               
 
-                Cliente cli = new Cliente(id, rg, nome, telefone);
+                Cliente cli = new Cliente(id, nome, rg, telefone);
                     listaClientes.add(cli);                    
             }//fecha while
             return listaClientes;

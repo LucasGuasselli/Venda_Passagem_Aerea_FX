@@ -16,7 +16,7 @@
         <columns>
           <TableColumn fx:id="tableColumnNome" prefWidth="227.0" text="Nome" />
           <TableColumn fx:id="tableColumnRg" minWidth="0.0" prefWidth="166.0" text="RG" />
-            <TableColumn fx:id="tableColumnTelefone" minWidth="0.0" prefWidth="174.0" text="Telefone" />
+            <TableColumn fx:id="tableColumnTelefone" minWidth="0.0" prefWidth="176.0" text="Telefone" />
         </columns>
       </TableView>
    </children>

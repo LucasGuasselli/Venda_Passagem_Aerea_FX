@@ -68,8 +68,8 @@ public class TelaListaClienteController implements Initializable {
     }//fecha initialize    
 
     private void carregaTableViewClientes() {
-        tableColumnRg.setCellValueFactory(new PropertyValueFactory<>("rg"));
         tableColumnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tableColumnRg.setCellValueFactory(new PropertyValueFactory<>("rg"));
         tableColumnTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));           
         
         observableListClientes = FXCollections.observableArrayList(listaClientes);

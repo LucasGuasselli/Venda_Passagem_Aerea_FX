@@ -58,6 +58,19 @@ public class TelaPrincipalController implements Initializable {
         stage.showAndWait();
     }//fecha abrirTelaCadAviao
     
+     @FXML
+    private void abrirTelaEditaCliente(ActionEvent event) throws IOException {        
+        Stage stage = new Stage();
+        Parent cliente = FXMLLoader.load(this.getClass().getResource("/view/TelaEditaCliente.fxml"));
+        Scene scene = new Scene(cliente);
+        stage.setScene(scene);
+        scene.getStylesheets().add(TelaPrincipalController.class.getResource("/estilo/Cliente.css").toExternalForm());
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(painelTelaPrincipal.getScene().getWindow());        
+                
+        stage.showAndWait();
+    }//fecha abrirTelaEditaCliente
+    
     @FXML
     private void abrirTelaDelCliente(ActionEvent event) throws IOException {        
         Stage stage = new Stage();
@@ -96,6 +109,19 @@ public class TelaPrincipalController implements Initializable {
                 
         stage.showAndWait();
     }//fecha abrirTelaListaCliente
+    
+    @FXML
+    private void abrirTelaListaAviao(ActionEvent event) throws IOException {        
+        Stage stage = new Stage();
+        Parent cliente = FXMLLoader.load(this.getClass().getResource("/view/TelaListaAviao.fxml"));
+        Scene scene = new Scene(cliente);
+        stage.setScene(scene);
+ 
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(painelTelaPrincipal.getScene().getWindow());        
+                
+        stage.showAndWait();
+    }//fecha abrirTelaListaAviao
     
     @FXML
     private void sair(ActionEvent event){
