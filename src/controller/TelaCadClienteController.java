@@ -9,6 +9,7 @@ import DAO.ClienteDAO;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -47,7 +48,7 @@ public class TelaCadClienteController implements Initializable {
         // TODO
     } 
     @FXML
-    private void onActionCadastrar(ActionEvent event) {      
+    private void onActionCadastrar(ActionEvent event) throws ClassNotFoundException, SQLException {      
         if(verificaCamposVazios() == true){
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("CAMPOS VAZIOS");
@@ -55,8 +56,16 @@ public class TelaCadClienteController implements Initializable {
             alert.setContentText("Voce deve preencher todos os campos!!");
                 alert.showAndWait();
         }else{
-            if(d.validaNome(tfNome.getText()) == true && d.validaRg(tfRg.getText()) == true && d.validaTelefone(tfTelefone.getText()) == true){
-                cadastrarCliente();
+            if(validaCampos() == true){
+                if(cDAO.verificaClienteRg(tfRg.getText()) == false){
+                    cadastrarCliente();
+                }else{
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("CLIENTE JA EXISTE");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Voce inseriu um rg ja cadastrado no banco de dados!!");
+                        alert.showAndWait();
+            }//fecha if-else             
             }else{
                 Alert alert = new Alert(AlertType.ERROR);
                 alert.setTitle("CAMPOS CHEIOS");
@@ -94,12 +103,12 @@ public class TelaCadClienteController implements Initializable {
                 nome = nome.toLowerCase();
                 nome = nome.substring(0,1).toUpperCase().concat(nome.substring(1));
                 
-                  cDAO.cadastrarCliente(new Cliente(nome, tfRg.getText(), tfTelefone.getText())); 
-                    alert = new Alert(AlertType.INFORMATION);
-                    alert.setTitle("SUCESSO!");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Cliente cadastrado com sucesso!");
-                       alert.showAndWait();
+                    cDAO.cadastrarCliente(new Cliente(nome, tfRg.getText(), tfTelefone.getText())); 
+                        alert = new Alert(AlertType.INFORMATION);
+                        alert.setTitle("SUCESSO!");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Cliente cadastrado com sucesso!");
+                            alert.showAndWait();
                 } catch (Exception e){
                     alert = new Alert(AlertType.ERROR);
                     alert.setTitle("EXCEÇÃO");
@@ -133,4 +142,12 @@ public class TelaCadClienteController implements Initializable {
         return false;
     }//fecha verificaCampos Vazios
     
+    private boolean validaCampos(){        
+        if(d.validaNome(tfNome.getText()) == true && 
+                d.validaRg(tfRg.getText()) == true && 
+                d.validaTelefone(tfTelefone.getText()) == true){
+            return true;
+        }//fecha -if                            
+        return false;
+    }//fecha validaCampos
 }//fecha classe

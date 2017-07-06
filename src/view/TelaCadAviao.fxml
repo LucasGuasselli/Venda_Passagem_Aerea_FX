@@ -37,8 +37,12 @@
             <RowConstraints maxHeight="64.0" minHeight="0.0" prefHeight="32.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <Button layoutX="163.0" layoutY="181.0" mnemonicParsing="false" onAction="#onActionCadastrar" text="Cadastrar" />
-      <Button layoutX="245.0" layoutY="231.0" mnemonicParsing="false" onAction="#tratarBotaoVoltar" text="Voltar" />
-      <Button layoutX="299.0" layoutY="181.0" mnemonicParsing="false" onAction="#onActionLimpar" text="Limpar" />
+      <Group>
+         <children>
+            <Button layoutX="163.0" layoutY="181.0" mnemonicParsing="false" onAction="#onActionCadastrar" text="Cadastrar" />
+            <Button layoutX="245.0" layoutY="231.0" mnemonicParsing="false" onAction="#tratarBotaoVoltar" text="Voltar" />
+            <Button layoutX="299.0" layoutY="181.0" mnemonicParsing="false" onAction="#onActionLimpar" text="Limpar" />
+         </children>
+      </Group>
    </children>
 </AnchorPane>

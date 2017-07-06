@@ -24,8 +24,8 @@ import model.Cliente;
 /**
  *
  * @author Lucas Guasselli
- * @since 29/06/2017
- * @version 3.0
+ * @since 03/07/2017
+ * @version 3.2
  * 
  */
 public class TelaListaClienteController implements Initializable {

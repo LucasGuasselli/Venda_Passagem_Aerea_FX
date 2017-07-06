@@ -153,7 +153,7 @@ public class TelaEditaClienteController implements Initializable {
                 alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("CANCELADO!");
                 alert.setHeaderText(null);
-                alert.setContentText("cadastro cancelado com sucesso!");
+                alert.setContentText("edicao cancelada com sucesso!");
                     alert.showAndWait();
             }//fecha if-else           
             

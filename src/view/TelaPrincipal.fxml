@@ -14,11 +14,13 @@
             <items>
               <MenuItem mnemonicParsing="false" onAction="#abrirTelaCadCliente" text="Cliente" />
                   <MenuItem mnemonicParsing="false" onAction="#abrirTelaCadAviao" text="Aviao" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaCadVoo" text="Voo" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Editar">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#abrirTelaEditaCliente" text="Cliente" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaEditaAviao" text="Aviao" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Deletar">
