@@ -29,9 +29,9 @@ public class VerificaDatas {
     }//fecha construtor
     
     //metodo verifica se data recebida é posterior a data atual
-    public boolean verificaDataAnterior(String data){
+    public boolean verificaDataAnterior(LocalDate data){
        
-        LocalDate dataX = LocalDate.parse(data,formatadorData);
+        LocalDate dataX = data;
         
         Period periodo = Period.between(hoje, dataX);
         soma = (periodo.getYears() + periodo.getMonths() + periodo.getDays());

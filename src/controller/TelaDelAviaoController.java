@@ -10,16 +10,25 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import model.Aviao;
 import util.Digita;
 
@@ -37,6 +46,16 @@ public class TelaDelAviaoController implements Initializable {
     
     @FXML
     private TextField tfCodigo;
+    @FXML
+    private TableView<Aviao> tableViewAviao;    
+    @FXML
+    private TableColumn<Aviao, String> tableColumnCodigo;    
+    @FXML
+    private TableColumn<Aviao, String> tableColumnNome;     
+    @FXML
+    private TableColumn<Aviao, String> tableColumnQtdeAssentos;
+    private List<Aviao> listaAvioes;    
+    private ObservableList<Aviao> observableListAvioes;
     
     private AviaoDAO aDAO = new AviaoDAO();
     private Digita d = new Digita();
@@ -144,7 +163,51 @@ public class TelaDelAviaoController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        try{
+        listaAvioes = aDAO.retornaListaAvioes();            
+                carregaTableViewAvioes(); 
+        }catch(Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("EXCEÇÃO");
+                alert.setHeaderText(null);
+                alert.setContentText("erro ao receber avioes do banco!");
+
+                alert.showAndWait();
+        }//try-catch
     }//fecha initialize    
     
+     private void carregaTableViewAvioes() {
+       tableColumnCodigo.setCellValueFactory(
+            new Callback<TableColumn.CellDataFeatures<Aviao,String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Aviao, String> linha) {
+                final Aviao aviao = linha.getValue();
+                final SimpleObjectProperty<String> simpleObject = 
+                        new SimpleObjectProperty(
+                            Integer.toString(aviao.getCodigo())
+                        );
+                return simpleObject;
+            }
+        });       
+        
+        tableColumnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        
+       tableColumnQtdeAssentos.setCellValueFactory(
+            new Callback<TableColumn.CellDataFeatures<Aviao,String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Aviao, String> linha) {
+                final Aviao aviao = linha.getValue();
+                final SimpleObjectProperty<String> simpleObject = 
+                        new SimpleObjectProperty(
+                            Integer.toString(aviao.getQtdeAssentos())
+                        );
+                return simpleObject;
+            }
+        });        
+       
+        observableListAvioes = FXCollections.observableArrayList(listaAvioes);
+        tableViewAviao.setItems(observableListAvioes); 
+        
+    }//fecha metodo carregaTableView
+     
 }//fecha classe

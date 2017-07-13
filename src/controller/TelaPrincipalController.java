@@ -6,6 +6,7 @@ package controller;
  * and open the template in the editor.
  */
 
+import DAO.AviaoDAO;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,7 +19,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 /**
  *
@@ -31,6 +31,7 @@ public class TelaPrincipalController implements Initializable {
     
     @FXML
     private AnchorPane painelTelaPrincipal;
+    private AviaoDAO aDAO = new AviaoDAO();
     
     @FXML
     private void abrirTelaCadCliente(ActionEvent event) throws IOException {        
@@ -58,14 +59,16 @@ public class TelaPrincipalController implements Initializable {
     }//fecha abrirTelaCadAviao
     
     @FXML
-    private void abrirTelaCadVoo(ActionEvent event) throws IOException {
-        Stage stage = new Stage();
-        Parent aviao = FXMLLoader.load(this.getClass().getResource("/view/TelaCadVoo.fxml"));
-        stage.setScene(new Scene(aviao));
-        aviao.getStylesheets().add(TelaPrincipalController.class.getResource("/estilo/Voo.css").toExternalForm());
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.initOwner(painelTelaPrincipal.getScene().getWindow());
-        stage.showAndWait();
+    private void abrirTelaCadVoo(ActionEvent event) throws IOException {            
+            Stage stage = new Stage();
+            Parent voo = FXMLLoader.load(this.getClass().getResource("/view/TelaCadVoo.fxml"));
+            Scene scene = new Scene(voo); 
+            stage.setScene(scene);
+            voo.getStylesheets().add(TelaPrincipalController.class.getResource("/estilo/Voo.css").toExternalForm());
+             stage.initModality(Modality.APPLICATION_MODAL);
+             stage.initOwner(painelTelaPrincipal.getScene().getWindow());
+                stage.showAndWait();
+                
     }//fecha abrirTelaCadVoo
     
     @FXML
@@ -148,12 +151,13 @@ public class TelaPrincipalController implements Initializable {
     
     @FXML
     private void sair(ActionEvent event){
-        System.exit(EXIT_ON_CLOSE);
+        System.exit(0);
     }//fecha metodo sair
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }//fecha initilize    
-    
+   
+       
 }//fecha classe

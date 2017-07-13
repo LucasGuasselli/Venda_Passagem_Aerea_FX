@@ -30,10 +30,10 @@ public class Voo {
 
     //construtor
     
-    public Voo(String origem,String destino, String horarioVoo, Aviao aviao){
+    public Voo(String origem,String destino, LocalDate horarioVoo, Aviao aviao){
         this.origem = origem;
         this.destino = destino;
-        this.dataVoo = LocalDate.parse(horarioVoo ,formatadorData);
+        this.dataVoo = horarioVoo;
         this.aviao = aviao;
        // this.controlaAssentos = new boolean[quantidade];
         this.idAviao = aviao.getId();        

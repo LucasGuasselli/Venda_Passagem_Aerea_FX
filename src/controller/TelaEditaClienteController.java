@@ -103,7 +103,6 @@ public class TelaEditaClienteController implements Initializable {
                 alert.setHeaderText(null);
                 alert.setContentText("erro ao receber clientes do banco!");
 
-                Exception ex = new FileNotFoundException("erro ao receber clientes do banco");
                 alert.showAndWait();
         }//try-catch
                

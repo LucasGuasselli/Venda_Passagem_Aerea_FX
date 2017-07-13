@@ -7,16 +7,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="telaListaAviao" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.TelaListaAviaoController">
+<AnchorPane id="AnchorPane" fx:id="telaListaAviao" prefHeight="400.0" prefWidth="530.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaListaAviaoController">
     <stylesheets>
         <URL value="@/estilo/Aviao.css" />
     </stylesheets>
    <children>
-      <TableView fx:id="tableViewClientes" layoutX="11.0" layoutY="9.0" prefHeight="382.0" prefWidth="575.0">
+      <TableView fx:id="tableViewAviao" layoutY="-1.0" prefHeight="400.0" prefWidth="533.0">
          <columns>
-            <TableColumn fx:id="tableColumnCodigo" prefWidth="120.0" text="Codigo" />
-            <TableColumn fx:id="tableColumnNome" minWidth="0.0" prefWidth="273.0" text="Nome" />
-            <TableColumn fx:id="tableColumnQtdeAssentos" minWidth="0.0" prefWidth="174.0" text="Quantidade de assentos" />
+            <TableColumn fx:id="tableColumnCodigo" prefWidth="105.0" text="Codigo" />
+            <TableColumn fx:id="tableColumnNome" minWidth="0.0" prefWidth="259.0" text="Nome" />
+            <TableColumn fx:id="tableColumnQtdeAssentos" minWidth="0.0" prefWidth="168.0" text="Quantidade de assentos" />
          </columns>
       </TableView>
    </children>

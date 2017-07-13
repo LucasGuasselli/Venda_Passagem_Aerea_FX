@@ -114,7 +114,31 @@ public class AviaoDAO {
             comando.close();
         }//fecha finally        
         return (null);   
-    }//fecha procurarAviaoByCid
+    }//fecha procurarAviaoByCod
+    
+    public Aviao retornaAviaoById(int _id) throws SQLException, ClassNotFoundException {
+        try{
+            String sql = "SELECT * FROM aviao WHERE idAviao = ?";
+            conectar(sql);
+                   comando.setInt(1,_id);
+            ResultSet resultado = comando.executeQuery();
+            if (resultado.next()) {
+                int id = resultado.getInt("idAviao");
+                int codigo = resultado.getInt("codigo");
+                String nome = resultado.getString("nome");
+                int qtdeAssentos = resultado.getInt("qtdeAssentos");
+                
+                Aviao avi = new Aviao(id, codigo, nome, qtdeAssentos);
+                return avi;
+            }//terminar caminho feliz (IF)
+        }catch (SQLException e) {
+                 e.printStackTrace();
+        } finally {
+            conexao.close();
+            comando.close();
+        }//fecha finally        
+        return (null);   
+    }//fecha procurarAviaoById
     
     public List<Aviao> retornaAviaoPorNome(String _nome) throws ClassNotFoundException, SQLException {
         List<Aviao> listaAvioes = new ArrayList<>();

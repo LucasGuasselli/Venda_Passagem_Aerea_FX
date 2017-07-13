@@ -119,15 +119,14 @@ public class VooDAO {
         }//fecha finally    
     }//fecha listarVoos
     
-    public Voo retornaVoo(String _dataVoo, String _origem, String _destino) throws ClassNotFoundException, SQLException {
+    public Voo retornaVoo(LocalDate _dataVoo, String _origem, String _destino) throws ClassNotFoundException, SQLException {
         Voo voo = null;       
         try {
             String sql = "SELECT * FROM voo WHERE origem = ? AND destino = ? AND dataVoo = ?";
             conectar(sql);
             comando.setString(1,_origem);
             comando.setString(2,_destino);
-            dataVoo = LocalDate.parse(_dataVoo ,formatadorData);
-            Date _dataSql = Date.valueOf(dataVoo);
+            Date _dataSql = Date.valueOf(_dataVoo);
                     comando.setDate(3,_dataSql);
             ResultSet resultado = comando.executeQuery();
         
@@ -138,7 +137,7 @@ public class VooDAO {
                 Date dataSql = resultado.getDate("dataVoo");
                 LocalDate horarioVoo = dataSql.toLocalDate();
                 int idAviao = resultado.getInt("idAviao");   
-                Aviao aviao = (aDAO.retornaAviaoByCod(idAviao));
+                Aviao aviao = (aDAO.retornaAviaoById(idAviao));
                 
                voo = new Voo(idVoo, origem, destino, horarioVoo, aviao);                              
             }//fecha while

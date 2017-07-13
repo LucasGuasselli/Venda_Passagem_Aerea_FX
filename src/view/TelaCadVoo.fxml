@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,8 +8,53 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="telaCadVoo" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.TelaCadVooController">
+<AnchorPane id="AnchorPane" fx:id="telaCadVoo" prefHeight="471.0" prefWidth="594.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaCadVooController">
     <stylesheets>
         <URL value="@/estilo/Voo.css" />
     </stylesheets>
+   <children>
+      <TableView fx:id="tableViewAviao" layoutX="-1.0" layoutY="296.0" prefHeight="175.0" prefWidth="600.0">
+         <columns>
+            <TableColumn fx:id="tableColumnCodigo" prefWidth="120.0" text="Codigo" />
+            <TableColumn fx:id="tableColumnNome" minWidth="0.0" prefWidth="300.0" text="Nome" />
+            <TableColumn fx:id="tableColumnQtdeAssentos" minWidth="0.0" prefWidth="179.0" text="Quantidade de assentos" />
+         </columns>
+      </TableView>
+      <Group layoutX="109.0" layoutY="33.0" />
+      <GridPane layoutX="78.0" layoutY="28.0" prefHeight="134.0" prefWidth="463.0">
+         <children>
+            <Label text="Data do Voo:" GridPane.rowIndex="2" />
+            <Label text="Codigo do Aviao" GridPane.rowIndex="3" />
+            <Label prefHeight="17.0" prefWidth="159.0" text="min 2 - max 30 caracteres" GridPane.columnIndex="2" />
+            <Label prefHeight="17.0" prefWidth="159.0" text="codigo cadastrado" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label prefHeight="17.0" prefWidth="139.0" text="posterior a data atual" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="tfCodigo" prefHeight="21.0" prefWidth="187.0" promptText="digite o codigo do Aviao" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Origem" />
+            <TextField fx:id="tfOrigem" prefHeight="21.0" prefWidth="187.0" promptText=" Origem do voo" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;" GridPane.columnIndex="1">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </TextField>
+            <Label text="Destino:" GridPane.rowIndex="1" />
+            <TextField fx:id="tfDestino" prefHeight="29.0" prefWidth="202.0" promptText="Destino do Voo" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label prefHeight="17.0" prefWidth="159.0" text="min 2 - max 30 caracteres" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <DatePicker fx:id="dpDataVoo" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="62.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="203.0" minWidth="10.0" prefWidth="186.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="139.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="64.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <Button layoutX="208.0" layoutY="177.0" mnemonicParsing="false" onAction="#onActionCadastrar" text="Cadastrar" />
+      <Button layoutX="364.0" layoutY="177.0" mnemonicParsing="false" onAction="#tratarBotaoVoltar" text="Voltar" />
+      <Button layoutX="289.0" layoutY="177.0" mnemonicParsing="false" onAction="#onActionLimpar" prefHeight="25.0" prefWidth="56.0" text="Limpar" />
+   </children>
 </AnchorPane>

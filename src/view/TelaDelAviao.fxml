@@ -7,16 +7,27 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="telaDelAviao" prefHeight="300.0" prefWidth="550.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaDelAviaoController">
+<AnchorPane id="AnchorPane" fx:id="telaDelAviao" prefHeight="461.0" prefWidth="552.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaDelAviaoController">
     <stylesheets>
         <URL value="@/estilo/Aviao.css" />
     </stylesheets>
    <children>
-      <Button layoutX="198.0" layoutY="170.0" mnemonicParsing="false" onAction="#onActionDeletar" text="Deletar" />
-      <Button layoutX="265.0" layoutY="216.0" mnemonicParsing="false" onAction="#tratarBotaoVoltar" text="Voltar" />
-      <Button layoutX="322.0" layoutY="170.0" mnemonicParsing="false" onAction="#onActionLimpar" text="Limpar" />
+      <Group>
+         <children>
+            <Button layoutX="179.0" layoutY="127.0" mnemonicParsing="false" onAction="#onActionDeletar" text="Deletar" />
+            <Button layoutX="254.0" layoutY="127.0" mnemonicParsing="false" onAction="#onActionLimpar" text="Limpar" />
+            <Button layoutX="328.0" layoutY="127.0" mnemonicParsing="false" onAction="#tratarBotaoVoltar" text="Voltar" />
+         </children>
+      </Group>
       <Label layoutX="419.0" layoutY="76.0" prefHeight="17.0" prefWidth="90.0" text="numero inteiro" />
       <Label layoutX="41.0" layoutY="76.0" prefHeight="17.0" prefWidth="100.0" text="Codigo do aviao" />
-      <TextField fx:id="tfCodigo" layoutX="140.0" layoutY="70.0" prefHeight="29.0" prefWidth="253.0" promptText="digite o  codigo do aviao que deseja deletar" style="-fx-background-color: none; -fx-border-color: black; -fx-border-radius: 10px;" />
+      <TextField fx:id="tfCodigo" layoutX="140.0" layoutY="70.0" prefHeight="29.0" prefWidth="253.0" promptText="digite o  codigo do aviao que deseja deletar" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;" />
+      <TableView fx:id="tableViewAviao" layoutY="286.0" prefHeight="175.0" prefWidth="555.0">
+         <columns>
+            <TableColumn fx:id="tableColumnCodigo" prefWidth="120.0" text="Codigo" />
+            <TableColumn fx:id="tableColumnNome" minWidth="0.0" prefWidth="273.0" text="Nome" />
+            <TableColumn fx:id="tableColumnQtdeAssentos" minWidth="0.0" prefWidth="174.0" text="Quantidade de assentos" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

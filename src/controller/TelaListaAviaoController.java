@@ -6,7 +6,6 @@
 package controller;
 
 import DAO.AviaoDAO;
-import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +37,7 @@ public class TelaListaAviaoController implements Initializable {
     AnchorPane telaListaAviao;
     
     @FXML
-    private TableView<Aviao> tableViewAvioes;
+    private TableView<Aviao> tableViewAviao;
     
     @FXML
     private TableColumn<Aviao, String> tableColumnCodigo;
@@ -56,18 +55,20 @@ public class TelaListaAviaoController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         try{
         listaAvioes = new ArrayList<>();
         listaAvioes = aDAO.retornaListaAvioes();
-            carregaTableViewAvioes();
+        
+        carregaTableViewAvioes();
 
         }catch(Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("EXCEÇÃO");
                 alert.setHeaderText(null);
                 alert.setContentText("erro ao receber avioes do banco!");
+                        e.printStackTrace();
 
-                Exception ex = new FileNotFoundException("erro ao receber avioes do banco");
                 alert.showAndWait();
         }//try-catch
     }//fecha initialize    
@@ -80,7 +81,7 @@ public class TelaListaAviaoController implements Initializable {
                 final Aviao aviao = linha.getValue();
                 final SimpleObjectProperty<String> simpleObject = 
                         new SimpleObjectProperty(
-                            Integer.toString(aviao.getCodigo())
+                            String.valueOf(aviao.getCodigo())
                         );
                 return simpleObject;
             }
@@ -95,14 +96,14 @@ public class TelaListaAviaoController implements Initializable {
                 final Aviao aviao = linha.getValue();
                 final SimpleObjectProperty<String> simpleObject = 
                         new SimpleObjectProperty(
-                            Integer.toString(aviao.getQtdeAssentos())
+                            String.valueOf(aviao.getQtdeAssentos())
                         );
                 return simpleObject;
             }
         });        
        
         observableListAvioes = FXCollections.observableArrayList(listaAvioes);
-        tableViewAvioes.setItems(observableListAvioes);
+        tableViewAviao.setItems(observableListAvioes);
     }//fecha metodo carregaTableView
     
 }//fecha classe

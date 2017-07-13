@@ -9,13 +9,6 @@
 
 <AnchorPane id="AnchorPane" fx:id="telaCadCliente" prefHeight="280.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaCadClienteController">
    <children>
-      <Group layoutX="10.0" layoutY="-8.0">
-         <children>
-            <Button layoutX="99.0" layoutY="208.0" mnemonicParsing="false" onAction="#onActionCadastrar" text="Cadastrar" />
-            <Button layoutX="162.0" layoutY="247.0" mnemonicParsing="false" onAction="#tratarBotaoVoltar" text="Voltar" />
-            <Button layoutX="220.0" layoutY="208.0" mnemonicParsing="false" onAction="#onActionLimpar" text="Limpar" />
-         </children>
-      </Group>
       <GridPane layoutX="1.0" layoutY="75.0" prefHeight="86.0" prefWidth="391.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="62.0" />
@@ -28,20 +21,27 @@
           <RowConstraints maxHeight="64.0" minHeight="0.0" prefHeight="32.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="tfNome" prefHeight="25.0" prefWidth="171.0" promptText="digite seu nome" style="-fx-border-color: black; -fx-background-color: none; -fx-border-radius: 10px;" GridPane.columnIndex="1">
+            <TextField fx:id="tfNome" opacity="0.9" prefHeight="25.0" prefWidth="171.0" promptText="digite seu nome" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-radius: 10px;" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="tfTelefone" prefHeight="29.0" prefWidth="202.0" promptText="digite seu telefone" style="-fx-background-color: none; -fx-border-color: black; -fx-border-radius: 10px;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="tfTelefone" prefHeight="29.0" prefWidth="202.0" promptText="digite seu telefone" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Nome:" />
             <Label text="RG:" GridPane.rowIndex="1" />
             <Label text="Telefone:" GridPane.rowIndex="2" />
             <Label prefHeight="17.0" prefWidth="159.0" text="min 2 - max 30 caracteres" GridPane.columnIndex="2" />
             <Label prefHeight="17.0" prefWidth="159.0" text="min 4 - max 10 caracteres" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <Label prefHeight="17.0" prefWidth="139.0" text="min 8 - max 14 caracteres" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <TextField fx:id="tfRg" prefHeight="29.0" prefWidth="202.0" promptText="digite seu RG" style="-fx-background-color: none; -fx-border-color: black; -fx-border-radius: 10px;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tfRg" prefHeight="29.0" prefWidth="202.0" promptText="digite seu RG" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
+      <Group>
+         <children>
+            <Button layoutX="88.0" layoutY="190.0" mnemonicParsing="false" onAction="#onActionCadastrar" text="Cadastrar" />
+            <Button layoutX="244.0" layoutY="190.0" mnemonicParsing="false" onAction="#tratarBotaoVoltar" text="Voltar" />
+            <Button layoutX="169.0" layoutY="190.0" mnemonicParsing="false" onAction="#onActionLimpar" prefHeight="25.0" prefWidth="56.0" text="Limpar" />
+         </children>
+      </Group>
    </children>
 </AnchorPane>

@@ -32,9 +32,11 @@ import model.Aviao;
 import util.Digita;
 
 /**
- * FXML Controller class
  *
- * @author lucas
+ * @author Lucas Guasselli
+ * @since 03/07/2017
+ * @version 3.2
+ * 
  */
 public class TelaEditaAviaoController implements Initializable {
 
@@ -49,19 +51,19 @@ public class TelaEditaAviaoController implements Initializable {
     @FXML
     private TextField tfQtdeAssentos;    
     @FXML
-    private TableView<Aviao> tableViewAvioes;    
+    private TableView<Aviao> tableViewAviao;    
     @FXML
     private TableColumn<Aviao, String> tableColumnCodigo;    
     @FXML
     private TableColumn<Aviao, String> tableColumnNome;     
     @FXML
     private TableColumn<Aviao, String> tableColumnQtdeAssentos;
-    private AviaoDAO aDAO = new AviaoDAO();
-    private Digita d = new Digita();
-    private Aviao avi = null;
-    
     private List<Aviao> listaAvioes;    
     private ObservableList<Aviao> observableListAvioes;
+    
+    private AviaoDAO aDAO = new AviaoDAO();
+    private Digita d = new Digita();
+    private Aviao avi = null;    
     
     @FXML
     private void onActionEditar(ActionEvent event) throws ClassNotFoundException, SQLException {      
@@ -89,7 +91,7 @@ public class TelaEditaAviaoController implements Initializable {
                      alert.setContentText("Aviao nao cadastrado!!");
                         alert.showAndWait(); 
                 }//fecha if-else                
-                }//fecha if-else
+            }//fecha if-else
             
         }//fecha if-else
     }//fecha handle event
@@ -140,7 +142,7 @@ public class TelaEditaAviaoController implements Initializable {
         });        
        
         observableListAvioes = FXCollections.observableArrayList(listaAvioes);
-        tableViewAvioes.setItems(observableListAvioes); 
+        tableViewAviao.setItems(observableListAvioes); 
         
     }//fecha metodo carregaTableView
     
@@ -212,7 +214,7 @@ public class TelaEditaAviaoController implements Initializable {
         return false;
     }//fecha verificaCampos Vazios
     
-     private boolean validaCampos(){
+    private boolean validaCampos(){
         try{
         if(d.validaCodigo(tfCodigo_alterar.getText()) &&
                 d.validaCodigo(tfCodigo.getText()) == true && 
