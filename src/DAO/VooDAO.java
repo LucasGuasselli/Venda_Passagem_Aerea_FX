@@ -166,7 +166,7 @@ public class VooDAO {
                 Date dataSql = resultado.getDate("dataVoo");
                 LocalDate horarioVoo = dataSql.toLocalDate();
                 int idAviao = resultado.getInt("idAviao");   
-                Aviao aviao = (aDAO.retornaAviaoByCod(idAviao));
+                Aviao aviao = (aDAO.retornaAviaoById(idAviao));
                 
                voo = new Voo(idVoo, origem, destino, horarioVoo, aviao);                              
             }//fecha while

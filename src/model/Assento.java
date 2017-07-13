@@ -88,6 +88,9 @@ public class Assento {
     public int getNumAssento() {
         return numAssento;
     }
+    public boolean getDisponibilidade(){
+        return this.disponibilidade;
+    }
     public String getTextoDisponibilidade() {
         return textoDisponibilidade;
     }   

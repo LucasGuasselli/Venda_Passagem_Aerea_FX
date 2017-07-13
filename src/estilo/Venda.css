@@ -1,0 +1,11 @@
+/**
+ *
+ * @author Lucas Guasselli
+ * @since 13/07/2017
+ * @version 3.5
+ * 
+ */
+
+.root {
+     -fx-background-image: url("imagens/venda.png");
+}

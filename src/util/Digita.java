@@ -65,6 +65,18 @@ public class Digita {
                 return false;
             }       
     }//fecha Digita
+    
+    public boolean validaAssento(String textfield){
+        int numAssento;
+        
+            numAssento = Integer.parseInt(textfield);
+
+            if(numAssento > 80 || numAssento < 200){
+                return true;
+            }else{
+                return false;
+            }       
+    }//fecha Digita
 
     public String digitaNome(String texto) {
         Scanner ler = new Scanner(System.in);    

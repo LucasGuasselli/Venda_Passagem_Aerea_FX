@@ -72,6 +72,19 @@ public class TelaPrincipalController implements Initializable {
     }//fecha abrirTelaCadVoo
     
     @FXML
+    private void abrirTelaCadVenda(ActionEvent event) throws IOException {            
+            Stage stage = new Stage();
+            Parent venda = FXMLLoader.load(this.getClass().getResource("/view/TelaCadVenda.fxml"));
+            Scene scene = new Scene(venda); 
+            stage.setScene(scene);
+            venda.getStylesheets().add(TelaPrincipalController.class.getResource("/estilo/Venda.css").toExternalForm());
+             stage.initModality(Modality.APPLICATION_MODAL);
+             stage.initOwner(painelTelaPrincipal.getScene().getWindow());
+                stage.showAndWait();
+                
+    }//fecha abrirTelaCadVoo
+    
+    @FXML
     private void abrirTelaEditaCliente(ActionEvent event) throws IOException {        
         Stage stage = new Stage();
         Parent cliente = FXMLLoader.load(this.getClass().getResource("/view/TelaEditaCliente.fxml"));
